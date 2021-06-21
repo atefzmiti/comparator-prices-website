@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css"/>
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css"/>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ url_for('search') }}">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('all_urlss') }}">all urls</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('insert') }}">Insert link</a>
+        </li>
+
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+</head>
+
+<body>
+{% block content %}
+{% with messages =get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <form action="#" method="POST">
+        <table class="table">
+            <tr>
+                <td><b>Enter a link you want to delete from your database : </b></td>
+                <td><input type="text" name="deletelink" >  </td>
+            </tr>
+
+
+<!--            -->
+
+        <td ><input type="submit" class="btn btn-outline-info" value="delete link" > </td><td> <input type="reset" value="reset" class="btn btn-outline-info"></td>
+        </table>
+    </form>
+{% endblock %}
+</body>
+
+</html>
